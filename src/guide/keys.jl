@@ -271,6 +271,8 @@ struct ManualDiscreteKey <: Gadfly.GuideElement
     shapes::Vector{Function}
     sizes::Vector{Measure}
     visible::Bool
+    # temporary workaround, see #1470
+    ManualDiscreteKey(title, labels, pos, clrs::Vector{<:Colorant}, shps, szs,  vis) = new(title, labels, pos, Vector{Colorant}(clrs), shps, szs, vis)
 end
 
 function ManualDiscreteKey(;title="", labels=String[], pos=[], color=Colorant[], shape=Function[], size=Measure[])
